@@ -15,7 +15,7 @@ The four queries are saved as raw text (no JSON wrapper) directly in Searchlight
 
 - Round types must be written as `venture-a` / `venture-b` / `venture-c` / `venture-d` — not `series-a` or `"Series A"`, despite that being the round's display name elsewhere in Searchlight.
 - Use `-` for NOT, not the word `NOT`.
-- Spacing inside filters matters: `{type="venture-a"}` works; `{ type="venture-a" }` may not.
+- Spacing inside filters: `{type="venture-a"}` works; `{ type="venture-a" }` may not.
 - `crunchbase:funding-total-usd` is the company's total funding; `crunchbase:rounds:raised-usd` is per-round.
 - **Always paste raw query text directly into the smart tag editor.** Pasting JSON or text containing `\n` has corrupted saved smart tags in the past.
 
