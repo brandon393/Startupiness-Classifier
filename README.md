@@ -131,7 +131,6 @@ python compare_results.py <manual.csv> <results.jsonl> [--mismatches-out mismatc
 
 **5. Searchlight domain misattribution** (see Cantera section above) affects the LLM stage identically to the Cantera stage, since both read from the same underlying company records.
 
-**6. Gemini full-batch testing is blocked by free-tier quota.** `gemini-3-flash-preview` is limited to roughly 5 requests/minute and 20 requests/day on the free tier — confirmed via Google AI Studio's rate-limit dashboard, not just documentation. This makes a full 99+ domain comparable run impractical without enabling billing on the Gemini project. Manual spot-checks via Google AI Studio (same system prompt, same company data, temperature 0.1) confirm Gemini exhibits the same tie-breaking failure as mini and GPT-5.4 on the domains tested, but a full quantitative accuracy figure has not been collected.
 
 ### Open questions / next steps
 
