@@ -127,14 +127,7 @@ python compare_results.py <manual.csv> <results.jsonl> [--mismatches-out mismatc
 
 **3. Run-to-run variance exists independent of the above.** Rerunning the same model against the same domain list with an identical prompt produces a different accuracy figure each time (observed spread: ~3–7 percentage points for mini, ~1 point for GPT-5.4). Roughly half of any given run's mismatches are the same domains every time (structural, see #1 and #2); the rest vary run to run and appear to be genuine LLM sampling noise rather than anything fixable via prompt changes.
 
-<<<<<<< HEAD
 **4. Gemini full-batch testing is blocked by free-tier quota.** `gemini-3-flash-preview` is limited to roughly 5 requests/minute and 20 requests/day on the free tier — confirmed via Google AI Studio's rate-limit dashboard, not just documentation. This makes a full 99+ domain comparable run impractical without enabling billing on the Gemini project. Manual spot-checks via Google AI Studio (same system prompt, same company data, temperature 0.1) confirm Gemini exhibits the same tie-breaking failure as mini and GPT-5.4 on the domains tested, but a full quantitative accuracy figure has not been collected.
-=======
-**4. Data completeness gap: `get_stream_companies` does not return Attio CRM comments or the rich signals block, even with `include_details: True`.** Only `lookup_company` (called per-domain) returns this data. This means ownership-clarifying comments left by teammates in Searchlight (e.g. a comment noting a company is "by CapCut") are invisible to the classifier on every `--stream`-based run, regardless of model or prompt wording. Confirmed root cause of at least one mismatch (`pippit.ai`, owned by CapCut/ByteDance per an Attio comment the model never saw). Fixing this would require adding a `lookup_company` call — likely scoped to domains that already trigger the subsidiary-check path, to avoid a large cost increase from fetching the full per-domain payload for every company in a run.
-
-**5. Searchlight domain misattribution** (see Cantera section above) affects the LLM stage identically to the Cantera stage, since both read from the same underlying company records.
-
->>>>>>> ae3b458656d872f2ce6bb7694d418ae4f7e6d2e8
 
 ### Open questions / next steps
 
