@@ -145,7 +145,3 @@ results.jsonl                     — most recent classifier output (gitignored 
 .env                               — credentials (gitignored, never commit)
 README.md                         — this file
 ```
-
-## Contributors
-
-Built by Brandon Chuang at Headline VC. Manual ground-truth labeling and ongoing review by Luis Schmitz.
