@@ -1,0 +1,21 @@
+/* Stage 1b: Auto-Include — Growth */
+
+crunchbase:uuid
+-acquired
+-terminated
+(-crunchbase:ipo OR crunchbase:ipo>+1d)
+-crunchbase:funding-total-usd>500000000
+-site:gov
+-site:edu
+-site:org
+
+(
+  crunchbase:rounds {type="venture-a" }
+  OR crunchbase:rounds {type="venture-b" }
+  OR crunchbase:rounds {type="venture-c" }
+  OR crunchbase:rounds {type="venture-d" }
+  OR (crunchbase:funding-total-usd>=30000000 AND crunchbase:funding-total-usd<=500000000)
+  OR (headcount:value>=50 AND crunchbase:founded>-5475d)
+)
+
+(crunchbase:rounds {date>-1825d} OR -crunchbase:rounds {date})

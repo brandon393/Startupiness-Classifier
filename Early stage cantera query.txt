@@ -1,0 +1,82 @@
+/* Stage 1a: Auto-Include — Early Stage */
+
+crunchbase:uuid
+-acquired
+-terminated
+(-crunchbase:ipo OR crunchbase:ipo>+1d)
+-crunchbase:funding-total-usd>30000000
+-site:gov
+-site:edu
+-site:org
+-(
+  crunchbase:rounds {type="venture-a" }
+  OR crunchbase:rounds {type="venture-b" }
+  OR crunchbase:rounds {type="venture-c" }
+  OR crunchbase:rounds {type="venture-d" }
+)
+(crunchbase:founded>-3650d OR -crunchbase:founded)
+
+/* Last round within 6 years or no rounds at all */
+(crunchbase:rounds {date>-2190d} OR -crunchbase:rounds)
+
+/* Must have at least one startup signal */
+(
+  crunchbase:rounds {type="seed" }
+  OR crunchbase:rounds {type="pre-seed" }
+  OR crunchbase:rounds {type="angel" }
+  OR (crunchbase:funding-total-usd>0 AND crunchbase:funding-total-usd<=30000000)
+  OR (
+    crunchbase:rounds {investors {name="Y Combinator" } }
+    AND -(
+      crunchbase:rounds {type="venture-a" }
+      OR crunchbase:rounds {type="venture-b" }
+      OR crunchbase:rounds {type="venture-c" }
+      OR crunchbase:rounds {type="venture-d" }
+    )
+  )
+  OR (
+    crunchbase:rounds {investors {name="Techstars" } }
+    AND -(
+      crunchbase:rounds {type="venture-a" }
+      OR crunchbase:rounds {type="venture-b" }
+      OR crunchbase:rounds {type="venture-c" }
+      OR crunchbase:rounds {type="venture-d" }
+    )
+  )
+  OR (
+    crunchbase:rounds {investors {name="500 Global" } }
+    AND -(
+      crunchbase:rounds {type="venture-a" }
+      OR crunchbase:rounds {type="venture-b" }
+      OR crunchbase:rounds {type="venture-c" }
+      OR crunchbase:rounds {type="venture-d" }
+    )
+  )
+  OR (
+    crunchbase:rounds {investors {name="Alchemist Accelerator" } }
+    AND -(
+      crunchbase:rounds {type="venture-a" }
+      OR crunchbase:rounds {type="venture-b" }
+      OR crunchbase:rounds {type="venture-c" }
+      OR crunchbase:rounds {type="venture-d" }
+    )
+  )
+  OR (
+    crunchbase:rounds {investors {name="Antler" } }
+    AND -(
+      crunchbase:rounds {type="venture-a" }
+      OR crunchbase:rounds {type="venture-b" }
+      OR crunchbase:rounds {type="venture-c" }
+      OR crunchbase:rounds {type="venture-d" }
+    )
+  )
+  OR (
+    crunchbase:rounds {investors {name="Entrepreneur First" } }
+    AND -(
+      crunchbase:rounds {type="venture-a" }
+      OR crunchbase:rounds {type="venture-b" }
+      OR crunchbase:rounds {type="venture-c" }
+      OR crunchbase:rounds {type="venture-d" }
+    )
+  )
+)

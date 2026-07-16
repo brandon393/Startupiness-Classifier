@@ -1,0 +1,20 @@
+/* Stage 1c: Auto-Include — Public or Established */
+
+-site:gov
+-site:edu
+-site:org
+
+(
+  /* IPO'd or Acquired */
+  (crunchbase:ipo AND -crunchbase:ipo>+1d)
+  OR acquired
+
+  /* Old company with no funding */
+  OR (crunchbase:founded<-7300d AND -crunchbase:funding-total-usd)
+
+  /* Large company with no funding */
+  OR (headcount:value>500 AND -crunchbase:funding-total-usd)
+
+  /* Well-funded late-stage private company */
+  OR crunchbase:funding-total-usd>500000000
+)

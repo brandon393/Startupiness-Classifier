@@ -1,0 +1,14 @@
+/* Stage 1d: Auto-Exclude */
+
+(
+  /* Entity Status */
+  terminated
+
+  /* Entity Type */
+  OR site:gov
+  OR site:edu
+
+  /* Content Category */
+  OR predicted:porn>0.8
+  OR predicted:manga>0.8
+)
