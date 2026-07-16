@@ -139,9 +139,13 @@ python compare_results.py <manual.csv> <results.jsonl> [--mismatches-out mismatc
 ## Repository structure
 
 ```
-Startupiness_LLM_Classifier.py   — main classification pipeline (OpenAI / Gemini)
-compare_results.py                — deterministic confusion matrix + mismatch report
-results.jsonl                     — most recent classifier output (gitignored if large)
-.env                               — credentials (gitignored, never commit)
-README.md                         — this file
+Startupiness_LLM_Classifier.py         — main classification pipeline (OpenAI / Gemini)
+compare_results.py                      — deterministic confusion matrix + mismatch report
+Early stage cantera query.txt           — raw Cantera smart tag query for early-stage companies
+Growth cantera query.txt                — raw Cantera smart tag query for growth-stage companies
+Established cantera query.txt           — raw Cantera smart tag query for established companies
+Auto-exclude cantera query.txt          — raw Cantera smart tag query for auto-excluded companies
+results.jsonl                           — most recent classifier output (gitignored if large)
+.env                                    — credentials (gitignored, never commit)
+README.md                               — this file
 ```
