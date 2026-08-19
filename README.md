@@ -145,6 +145,8 @@ Early stage cantera query.txt           — raw Cantera smart tag query for earl
 Growth cantera query.txt                — raw Cantera smart tag query for growth-stage companies
 Established cantera query.txt           — raw Cantera smart tag query for established companies
 Auto-exclude cantera query.txt          — raw Cantera smart tag query for auto-excluded companies
+Luis_list.csv                           — original unclassified domain list (Luis's list, 197 domains)
+anaphora.csv                            — original unclassified domain list (Anaphora, 959 domains)
 results.jsonl                           — most recent classifier output (gitignored if large)
 .env                                    — credentials (gitignored, never commit)
 README.md                               — this file
